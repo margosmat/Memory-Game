@@ -5,16 +5,27 @@ const icons = ["fas fa-bug", "fas fa-bolt",
                   "far fa-compass", "fas fa-fighter-jet",
                   "fas fa-gamepad", "fas fa-paw"];
 
-//$('.icon').addClass(icons[1]);
-
 let cards = $('.icon');
+let cardBacks = [,,,,,,,,,,,,,,,];
+let cardBacksCopy = [,,,,,,,,,,,,,,,];
 for(let j = 0; j < 9; j += 8)
 {
   let randomNumber = Math.round(Math.random() * 8);
   for(let i = 0; i < 8; i++)
   {
-    $(cards[i + j]).addClass(icons[(i + randomNumber) % 8]);
+    cardBacks[i+j] = icons[(i + randomNumber) % 8];
   }
+  const iconsCopy = 1;
+}
+for(let i = 0; i < 8; i++)
+{
+  cardBacksCopy[i] = cardBacks[i*2];
+  cardBacksCopy[i+8] = cardBacks[16 - (i*2+1)];
+}
+
+for(let i = 0; i < 16; i++)
+{
+  $(cards[i]).addClass(cardBacksCopy[i]);
 }
 
 let count = 0;
