@@ -5,7 +5,17 @@ const icons = ["fas fa-bug", "fas fa-bolt",
                   "far fa-compass", "fas fa-fighter-jet",
                   "fas fa-gamepad", "fas fa-paw"];
 
-$('.icon').addClass(icons[1]);
+//$('.icon').addClass(icons[1]);
+
+let cards = $('.icon');
+for(let j = 0; j < 9; j += 8)
+{
+  let randomNumber = Math.round(Math.random() * 8);
+  for(let i = 0; i < 8; i++)
+  {
+    $(cards[i + j]).addClass(icons[(i + randomNumber) % 8]);
+  }
+}
 
 let count = 0;
 $('.card').on('click', function(e) {

@@ -44,14 +44,14 @@ td {
 
 .card-front {
   background-color: #444;
-  transform: rotateY( 0deg ) translateZ( 2px );
+  transform: rotateY( 180deg ) translateZ( 2px );
 }
 
 .card-back {
   top: 0;
   left: 0;
   position: absolute;
-  transform: rotateY( 180deg ) translateZ( 0px );
+  transform: rotateY( 0deg ) translateZ( 0px );
   background-color: #b88;
   align-items: center;
 }
