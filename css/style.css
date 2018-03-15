@@ -53,4 +53,13 @@ td {
   position: absolute;
   transform: rotateY( 180deg ) translateZ( 0px );
   background-color: #b88;
+  align-items: center;
+}
+
+.icon {
+  height: 100%;
+  font-size: 70px;
+  display: block;
+  margin: 0 auto;
+  pointer-events: none;
 }
