@@ -33,20 +33,41 @@ function shuffleArray(array) {
 
 let count = 0;
 $('.card').on('click', function(e) {
-  console.log(e);
+  
   let parent = $(e.target).parent();
-  if ( parent.hasClass('flipped') )
+  if ( !parent.hasClass('flipped') )
   {
-		// sparent.removeClass('flipped');
-	}
-  else {
+    count++;
+    parent.addClass('flipped');
     if(count === 2)
     {
-      unflip();
+      let flippedCards = $('.flipped').find('.card-back').children();
+      let areLogosTheSame = $(flippedCards[0]).attr('class') === $(flippedCards[1]).attr('class');
+      if(areLogosTheSame)
+      {
+        setTimeout(function(){
+          for(card of flippedCards)
+          {
+            $(card).parent().parent().removeClass('flipped');
+            $(card).parent().parent().addClass('success');
+          }
+        }, 1000);
+      }
+      else
+      {
+        setTimeout(function(){
+          $(flippedCards).parent().parent().toggleClass('wrong');
+        }, 500);
+        setTimeout(function(){
+          for(card of flippedCards)
+          {
+            $(card).parent().parent().removeClass('wrong');
+          }
+          unflip();
+        }, 1100);        
+      }      
       count = 0;
-    }
-    parent.addClass('flipped');
-    count++;
+    }    
 	}
 });
 
