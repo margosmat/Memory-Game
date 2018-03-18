@@ -47,37 +47,18 @@ $('.card').on('click', function(e) {
       // Card comparison
       let flippedCards = $('.flipped').find('.card-back').children();
       let areLogosTheSame = $(flippedCards[0]).attr('class') === $(flippedCards[1]).attr('class');
-      if(areLogosTheSame)
+      compareCards(flippedCards, areLogosTheSame);
+
+      // Removing event catcher
+      if($('body').has('.event-catcher'))
       {
-        setTimeout(function(){
-          for(card of flippedCards)
-          {
-            $(card).parent().parent().removeClass('flipped');
-            $(card).parent().parent().addClass('success');
-            $(card).parent().addClass('back-success');
-          }
-        }, 500);
-      }
-      else
-      {
-        setTimeout(function(){
-          $(flippedCards).parent().parent().toggleClass('wrong');
-        }, 500);
-        setTimeout(function(){
-          for(card of flippedCards)
-          {
-            $(card).parent().parent().removeClass('wrong');
-          }
-          unflip();
-        }, 1100);        
-      }
-    }
-    if($('body').has('.event-catcher'))
-    {
         setTimeout(function(){
           $('body').find('.event-catcher').remove();
         }, 800);
-    }
+      }
+
+      countMoves();      
+    }    
 	}
 });
 
@@ -89,4 +70,37 @@ function unflip() {
       $(card).removeClass('flipped');
     }
   }
+}
+
+function compareCards(flippedCards, areLogosTheSame)
+{
+  if(areLogosTheSame)
+  {
+    setTimeout(function(){
+      for(card of flippedCards)
+      {
+        $(card).parent().parent().removeClass('flipped');
+        $(card).parent().parent().addClass('success');
+        $(card).parent().addClass('back-success');
+      }
+    }, 500);
+  }
+  else
+  {
+    setTimeout(function(){
+      $(flippedCards).parent().parent().toggleClass('wrong');
+    }, 500);
+    setTimeout(function(){
+      for(card of flippedCards)
+      {
+        $(card).parent().parent().removeClass('wrong');
+      }
+      unflip();
+    }, 1100);        
+  }      
+}
+
+function countMoves() {
+  movesCount++;
+  $('.moves-count').text(movesCount);
 }

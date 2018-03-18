@@ -15,6 +15,32 @@ table {
   border-spacing: 0;
 }
 
+body {
+  width: 450px;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+  vertical-align: middle;
+}
+
+#title {
+  text-align: center;
+}
+
+.stats-stars {
+  display: inline;
+}
+
+.moves-count {
+  display: inline;
+}
+
+.stats-moves {
+  display: inline;
+}
+
 main {
   height: 100vh;
   vertical-align: middle;
@@ -26,8 +52,6 @@ main {
   border: solid 1px #444;
   background-color: #dfcdcd;
   border-radius: 5px;
-  margin: calc((100vh - 450px)/2) auto;
-
 }
 
 .table-board {
