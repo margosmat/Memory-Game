@@ -39,8 +39,13 @@ $('.card').on('click', function(e) {
   {
     count++;
     parent.addClass('flipped');
-    if(count === 2)
+    if($('.flipped').length === 2)
     {
+      // Adds empty div that prevents user from clicking
+      // when cards comparing animations are running
+      $('body').append('<div class="event-catcher"></div>');
+
+      // Card comparison
       let flippedCards = $('.flipped').find('.card-back').children();
       let areLogosTheSame = $(flippedCards[0]).attr('class') === $(flippedCards[1]).attr('class');
       if(areLogosTheSame)
@@ -67,7 +72,13 @@ $('.card').on('click', function(e) {
         }, 1100);        
       }      
       count = 0;
-    }    
+    }
+    if($('body').has('.event-catcher'))
+    {
+        setTimeout(function(){
+          $('body').find('.event-catcher').remove();
+        }, 800);
+    }
 	}
 });
 
