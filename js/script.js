@@ -103,4 +103,16 @@ function compareCards(flippedCards, areLogosTheSame)
 function countMoves() {
   movesCount++;
   $('.moves-count').text(movesCount);
+  starsRefresh();
+}
+
+function starsRefresh()
+{
+  if(movesCount % 10 === 0)
+  {
+    let stars = $('.fa-star').filter("svg[data-prefix='fas']");
+    let star = stars.last();
+    star.removeClass('fas');
+    star.addClass('far');
+  }
 }
