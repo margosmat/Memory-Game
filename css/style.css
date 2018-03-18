@@ -15,15 +15,26 @@ table {
   border-spacing: 0;
 }
 
-.board {
+main {
   height: 100vh;
   vertical-align: middle;
 }
 
+.board {
+  width: 450px;
+  height: 450px;
+  border: solid 1px #444;
+  background-color: #dfcdcd;
+  border-radius: 5px;
+  margin: calc((100vh - 450px)/2) auto;
+
+}
+
 .table-board {
+  z-index: 2;
   width: 400px;
   height: 400px;
-  margin: calc((100vh - 400px)/2) auto;
+  margin: 25px;
 }
 
 .card-container {
@@ -44,8 +55,13 @@ table {
   cursor: pointer;
 }
 
-.flipped, .success {
+.flipped {
   transform: rotatey(-180deg) translatex(0px) translatey(0px);
+}
+
+.success {
+  transform: rotatey(-180deg) translatex(0px) translatey(0px);
+  animation: shrink 0.5s ease-in-out 0s 1 normal;
 }
 
 .card-front,
@@ -69,6 +85,11 @@ table {
   transform: rotateY( 180deg );
   background-color: #b88;
   align-items: center;
+}
+
+.back-success {
+  transition: 0.5s ease-in;
+  background-color: #8fbc8f;
 }
 
 .icon {
@@ -99,6 +120,12 @@ table {
 
   40%, 60% {
     transform: translateX(4px) rotatey(-180deg);
+  }
+}
+
+@keyframes shrink {
+  50% {
+    transform: scale(1.2) rotatey(-180deg);
   }
 }
 

@@ -7,6 +7,7 @@ const icons = ["fas fa-bug", "fas fa-bolt",
 
 let cards = $('.icon');
 let cardBacks = [];
+let movesCount = 0;
 
 for(let j = 0; j <= 8; j+=8)
 {
@@ -31,13 +32,11 @@ function shuffleArray(array) {
   }
 }
 
-let count = 0;
 $('.card').on('click', function(e) {
   
   let parent = $(e.target).parent();
   if ( !parent.hasClass('flipped') )
   {
-    count++;
     parent.addClass('flipped');
     if($('.flipped').length === 2)
     {
@@ -55,8 +54,9 @@ $('.card').on('click', function(e) {
           {
             $(card).parent().parent().removeClass('flipped');
             $(card).parent().parent().addClass('success');
+            $(card).parent().addClass('back-success');
           }
-        }, 1000);
+        }, 500);
       }
       else
       {
@@ -70,8 +70,7 @@ $('.card').on('click', function(e) {
           }
           unflip();
         }, 1100);        
-      }      
-      count = 0;
+      }
     }
     if($('body').has('.event-catcher'))
     {
