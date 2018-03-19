@@ -37,6 +37,7 @@ startTimer();
 $('.card').on('click', function(e) {
   
   let parent = $(e.target).parent();
+  if ( parent.hasClass('success') ) return;
   if ( !parent.hasClass('flipped') )
   {
     parent.addClass('flipped');
