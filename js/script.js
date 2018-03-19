@@ -8,6 +8,7 @@ const icons = ["fas fa-bug", "fas fa-bolt",
 let cards = $('.icon');
 let cardBacks = [];
 let movesCount = 0;
+let timerInterval;
 
 for(let j = 0; j <= 8; j+=8)
 {
@@ -121,8 +122,9 @@ function starsRefresh()
 }
 
 function startTimer() {
+  if(timerInterval!=0) clearInterval(timerInterval);
   const start = new Date().getTime();
-  let x = setInterval(function() {
+  timerInterval = setInterval(function() {
 
     let now = new Date().getTime();
 
@@ -153,3 +155,15 @@ function startTimer() {
     $('.stats-timer').text(`${minutesString}:${secondsString}`);
   }, 1000);
 }
+
+$('.btn-reset').on('click', function() {
+  $('.stats-timer').text(`00:00`);
+  startTimer();
+  movesCount = 0;
+  $('.moves-count').text(movesCount);
+  $('.card').removeClass('success');
+  $('.card').removeClass('flipped');
+  $('.fa-star').filter("svg[data-prefix='far']")
+               .removeClass('far')
+               .addClass('fas');
+});
