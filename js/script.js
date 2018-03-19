@@ -32,6 +32,8 @@ function shuffleArray(array) {
   }
 }
 
+startTimer();
+
 $('.card').on('click', function(e) {
   
   let parent = $(e.target).parent();
@@ -96,7 +98,7 @@ function compareCards(flippedCards, areLogosTheSame)
         $(card).parent().parent().removeClass('wrong');
       }
       unflip();
-    }, 1100);        
+    }, 1100);
   }      
 }
 
@@ -115,4 +117,38 @@ function starsRefresh()
     star.removeClass('fas');
     star.addClass('far');
   }
+}
+
+function startTimer() {
+  const start = new Date().getTime();
+  let x = setInterval(function() {
+
+    let now = new Date().getTime();
+
+    let distance = now - start;
+
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Display time in specific format - MM:SS
+    let minutesString, secondsString;
+    if(minutes < 10)
+    {
+      minutesString = "0" + minutes.toString();
+    }
+    else
+    {
+      minutesString = minutes.toString();
+    }
+    if(seconds < 10)
+    {
+      secondsString = "0" + seconds.toString();
+    }
+    else
+    {
+      secondsString = seconds.toString();
+    }
+
+    $('.stats-timer').text(`${minutesString}:${secondsString}`);
+  }, 1000);
 }

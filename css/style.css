@@ -41,6 +41,11 @@ header {
   display: inline;
 }
 
+.stats-timer {
+  display: inline;
+  vertical-align: middle;
+}
+
 main {
   height: 100vh;
   vertical-align: middle;
