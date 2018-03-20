@@ -33,8 +33,6 @@ function shuffleArray(array) {
   }
 }
 
-startTimer();
-
 $('.card').on('click', function(e) {
   
   let parent = $(e.target).parent();
@@ -166,4 +164,10 @@ $('.btn-reset').on('click', function() {
   $('.fa-star').filter("svg[data-prefix='far']")
                .removeClass('far')
                .addClass('fas');
+  $('.card-back').removeClass('back-success');
+});
+
+$('.btn-start').on('click', function() {
+  $('.start-screen').addClass('start-screen-hide');
+  setTimeout(startTimer, 100);
 });

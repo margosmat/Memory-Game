@@ -18,6 +18,9 @@ table {
 body {
   width: 450px;
   margin: 0 auto;
+  background-color: #EAF2EF;
+  font-family: 'Contrail One', sans-serif;
+  color: #292F36;
 }
 
 header {
@@ -51,16 +54,37 @@ main {
   vertical-align: middle;
 }
 
+.start-screen {
+  width: 450px;
+  height: 550px;
+  border: solid 1px #444;
+  border-radius: 5px;
+  z-index: 2;
+  position: absolute;
+  background-color: #F7FFF7;
+  display: flex;
+  flex-wrap: wrap;
+  transform: translatey(0px);
+  transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+}
+
+.start-screen-hide {
+  transform: translateY(-580px);
+}
+
+.btn-start {
+  margin: auto;
+}
+
 .board {
   width: 450px;
   height: 450px;
   border: solid 1px #444;
-  background-color: #dfcdcd;
+  background-color: #F7FFF7;
   border-radius: 5px;
 }
 
 .table-board {
-  z-index: 2;
   width: 400px;
   height: 400px;
   margin: 25px;
@@ -100,10 +124,11 @@ main {
   backface-visibility: hidden;
   border-radius: 5px;
   border: solid #000 0.2px;
+  transition: 0.5s ease-in;
 }
 
 .card-front {
-  background-color: #444;
+  background-color: #FF6B6B;
   transform: rotateY( 0deg ) translateZ( 2px );
 }
 
@@ -112,13 +137,12 @@ main {
   left: 0;
   position: absolute;
   transform: rotateY( 180deg );
-  background-color: #b88;
+  background-color: #FFE66D;
   align-items: center;
 }
 
 .back-success {
-  transition: 0.5s ease-in;
-  background-color: #8fbc8f;
+  background-color: #88E172;
 }
 
 .icon {
@@ -128,6 +152,7 @@ main {
   margin: 0 auto;
   pointer-events: none;
   transition: none !important;
+  color: #292F36;
 }
 
 .wrong {    
