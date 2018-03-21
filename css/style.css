@@ -73,8 +73,7 @@ header {
 }
 
 .reset-click {
-  transition: 0.5s ease-in;
-  transform: rotateZ(360deg);
+  animation: shrink-with-Zrotate 0.4s linear 0s 1 normal;
 }
 
 main {
@@ -154,7 +153,7 @@ main {
 
 .success {
   transform: rotatey(-180deg) translatex(0px) translatey(0px);
-  animation: shrink 0.5s ease-in-out 0s 1 normal;
+  animation: shrink-with-Yrotate 0.5s ease-in-out 0s 1 normal;
 }
 
 .card-front,
@@ -217,9 +216,23 @@ main {
   }
 }
 
-@keyframes shrink {
+@keyframes shrink-with-Yrotate {
   50% {
     transform: scale(1.2) rotatey(-180deg);
+  }
+}
+
+@keyframes shrink-with-Zrotate {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+  }
+  
+  50% {
+    transform: scale(1.5) rotateZ(180deg);
+  }
+
+  100% {
+    transform: scale(1) rotateZ(360deg);
   }
 }
 
