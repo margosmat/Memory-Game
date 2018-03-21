@@ -11,7 +11,7 @@ const successAnimation = `<svg id="successAnimation" class="animated" xmlns="htt
                           <polyline id="successAnimationCheck" stroke="#979797" stroke-width="2" points="23 34 34 43 47 27" fill="transparent"/>
                           </svg>`;
 
-let cards = $('.icon');
+let cards = $('.card-back');
 let cardBacks = [];
 let movesCount = 0;
 let timerInterval;
@@ -24,11 +24,12 @@ for(let j = 0; j <= 8; j+=8)
   }
 }
 
-shuffleArray(cardBacks);
-
-for(let i = 0; i < 16; i++)
-{
-  $(cards[i]).addClass(cardBacks[i]);
+function shuffleAndAssignCardIcons() {
+  shuffleArray(cardBacks);
+  for(let i = 0; i < 16; i++)
+  {
+    $(cards[i]).append(`<i class="icon ${cardBacks[i]}"></i>`);
+  }
 }
 
 // Durstenfeld shuffle
@@ -112,11 +113,30 @@ function compareCards(flippedCards, areLogosTheSame)
 function checkIfEndGame() {
   if($('.success').length === 16)
   {
-    $('.end-screen').addClass('end-screen-show');
-    setTimeout(function(){
-      $('.end-screen').append(successAnimation);
-    }, 1000);
+    constructEndGameStats();
+    showEndScreen();    
   }
+}
+constructEndGameStats();
+showEndScreen();
+
+function showEndScreen() {
+  $('.end-screen').addClass('end-screen-show');
+    setTimeout(function(){
+      $('.end-animation-container').prepend(successAnimation);
+    }, 1000);
+}
+
+function constructEndGameStats() {
+  let starsCount = $('.fa-star').filter("svg[data-prefix='fas']").length;
+  let congrats = starsCount === 3 ? "Coool!" : starsCount === 2 ? "Good!" : starsCount === 1 ? "Nice!" : "Practise more!";
+  let starsString = starsCount === 1 ? "Star" : "Stars";
+  let endGameString = `<p class="end-game-stats">You finished with:</p>
+                      <p class="end-game-stats">${movesCount} Moves</p>
+                      <p class="end-game-stats">${starsCount} ${starsString}</p>
+                      <p class="end-game-stats">After: ${$('.stats-timer').text()}</p>
+                      <p class="end-game-stats">${congrats}</p>`;
+  $('#congrats').after(endGameString);
 }
 
 function countMoves() {
@@ -182,6 +202,10 @@ function resetGame() {
                .removeClass('far')
                .addClass('fas');
   $('.card-back').removeClass('back-success');
+  setTimeout(function() {
+    $('.card-back').children().remove();
+    shuffleAndAssignCardIcons();
+  }, 500);
 }
 
 $('.btn-reset').on('click', function() {
@@ -194,7 +218,14 @@ $('.btn-reset').on('click', function() {
 
 $('.btn-start').on('click', function() {
   $('.start-screen').addClass('start-screen-hide');
-  $('.end-screen').removeClass('end-screen-show');
   resetGame();
 });
 
+$('.btn-play-again').on('click', function() {
+  $('.end-screen').removeClass('end-screen-show');
+  resetGame();
+  setTimeout(function() {
+    $('.end-animation-container').children().remove();
+    $('.end-game-stats').remove();
+  }, 500);
+});

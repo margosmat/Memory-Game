@@ -23,6 +23,8 @@ body {
   color: #292F36;
 }
 
+/* HEADER */
+
 header {
   width: 100%;
   vertical-align: middle;
@@ -31,6 +33,79 @@ header {
 #title {
   text-align: center;
 }
+
+/* START & END SCREEN */
+
+.start-screen, .end-screen {
+  width: 450px;
+  height: 550px;
+  border: solid 1px #444;
+  border-radius: 5px;
+  position: absolute;
+  background-color: #F7FFF7;
+  display: flex;
+  flex-wrap: wrap;
+  transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+}
+
+.start-screen {
+  z-index: 2;
+  transform: translatey(0px);
+}
+
+.start-screen-hide {
+  transform: translateY(-580px);
+}
+
+.btn-start {
+  margin: auto;
+}
+
+.end-screen {
+  z-index: 3;
+  transform: translatey(-580px);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.end-screen-content {
+  width: 200px;
+  height: 400px;
+  margin: auto;
+}
+
+.end-animation-container {
+  width: 120px;
+  height: 120px;
+  margin: auto;
+}
+
+#congrats {
+  text-align: center;
+}
+
+.end-game-stats {
+  width: 80%;
+  margin-left: 20%;
+}
+
+.btn-play-again {
+  margin: auto;
+  display: block;
+  outline: none;
+  border: solid 0;
+  background-color: #88E172;
+  width: 150px;
+  height: 30px;
+  border-radius: 3px;
+  font-family: 'Contrail One', sans-serif;
+}
+
+.end-screen-show {
+  transform: translatey(0px);
+}
+
+/* STATS & RESET BUTTON */
 
 .stats {
   display: flex;
@@ -76,43 +151,11 @@ header {
   animation: shrink-with-Zrotate 0.4s linear 0s 1 normal;
 }
 
+/* GAMEBOARD */
+
 main {
   height: 100vh;
   vertical-align: middle;
-}
-
-.start-screen, .end-screen {
-  width: 450px;
-  height: 550px;
-  border: solid 1px #444;
-  border-radius: 5px;
-  position: absolute;
-  background-color: #F7FFF7;
-  display: flex;
-  flex-wrap: wrap;
-  transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1.550);
-}
-
-.start-screen {
-  z-index: 2;
-  transform: translatey(0px);
-}
-
-.end-screen {
-  z-index: 3;
-  transform: translatey(-580px);
-}
-
-.start-screen-hide {
-  transform: translateY(-580px);
-}
-
-.end-screen-show {
-  transform: translatey(0px);
-}
-
-.btn-start {
-  margin: auto;
 }
 
 .board {
@@ -198,6 +241,15 @@ main {
   animation: shake 0.5s linear 0s 1 normal;
 }
 
+.event-catcher {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+}
+
+/* ANIMATIONS */
+
 @keyframes shake {
   10%, 90% {
     transform: translateX(-1px) rotatey(-180deg);
@@ -234,13 +286,6 @@ main {
   100% {
     transform: scale(1) rotateZ(360deg);
   }
-}
-
-.event-catcher {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0;
 }
 
 @keyframes scaleAnimation {
