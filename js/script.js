@@ -186,6 +186,10 @@ function resetGame() {
 
 $('.btn-reset').on('click', function() {
   resetGame();
+  $('.btn-reset').addClass('reset-click');
+  setTimeout(function() {
+    $('.btn-reset').removeClass('reset-click');
+  }, 1000);
 });
 
 $('.btn-start').on('click', function() {

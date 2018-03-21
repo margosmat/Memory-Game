@@ -32,12 +32,25 @@ header {
   text-align: center;
 }
 
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stats-moves-box,
+.stats-timer-box,
+.stats-reset-box {
+  width: calc(100% / 3);
+}
+
 .stats-stars {
-  display: inline;
+  display: inline-block;
+  margin-bottom: 5px;
 }
 
 .moves-count {
   display: inline;
+  margin-left: 5px;
 }
 
 .stats-moves {
@@ -45,8 +58,23 @@ header {
 }
 
 .stats-timer {
-  display: inline;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
   vertical-align: middle;
+}
+
+.btn-reset {
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background: none;
+  float: right;
+}
+
+.reset-click {
+  transition: 0.5s ease-in;
+  transform: rotateZ(360deg);
 }
 
 main {
