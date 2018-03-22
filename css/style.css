@@ -50,7 +50,21 @@ header {
 
 .start-screen {
   z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
   transform: translatey(0px);
+}
+
+#start-screen-title,
+#start-screen-credentials {
+  width: 100%;
+  text-align: center;
+}
+
+.start-screen-content {
+  width: 200px;
+  height: 200px;
+  margin: auto;
 }
 
 .start-screen-hide {
@@ -59,6 +73,15 @@ header {
 
 .btn-start {
   margin: auto;
+  display: block;
+  outline: none;
+  border: solid 0;
+  background-color: #88E172;
+  width: 150px;
+  height: 50px;
+  border-radius: 3px;
+  font-family: 'Contrail One', sans-serif;
+  font-size: 20px;
 }
 
 .end-screen {

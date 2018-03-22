@@ -117,8 +117,6 @@ function checkIfEndGame() {
     showEndScreen();    
   }
 }
-constructEndGameStats();
-showEndScreen();
 
 function showEndScreen() {
   $('.end-screen').addClass('end-screen-show');
