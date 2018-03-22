@@ -147,7 +147,7 @@ function countMoves() {
 
 function starsRefresh()
 {
-  if(movesCount % 10 === 0)
+  if(movesCount === 15 || movesCount === 20 || movesCount === 25)
   {
     let stars = $('.fa-star').filter("svg[data-prefix='fas']");
     let star = stars.last();
