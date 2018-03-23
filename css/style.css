@@ -38,9 +38,10 @@ header {
 /* START & END SCREEN */
 
 .start-screen, .end-screen {
-  width: calc(100% - 2px);
-  height: calc(100vh - 2px);
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
   top: 0;
+  margin: 1px;
   border: solid 1px #444;
   border-radius: 5px;
   position: absolute;
@@ -194,32 +195,33 @@ header {
 /* GAMEBOARD */
 
 main {
-  height: 100vh;
-  vertical-align: middle;
+  /* height: 100vh; */
+  /* vertical-align: middle; */
 }
 
 .board {
-  width: calc(100vw - 2px);
-  height: calc(100vw - 2px);
+  width: calc(100vw - 4px);
+  height: calc(100vw - 4px);
+  margin-left: 1px;
   border: solid 1px #444;
   background-color: #F7FFF7;
   border-radius: 5px;
 }
 
 .table-board {
-  width: calc(100vw - 10px);
-  height: calc(100vw - 10px);
+  width: calc(100vw - 12px);
+  height: calc(100vw - 12px);
   margin: 5px;
 }
 
 .card-container {
-  width: calc((100vw - 10px) / 4);
-  height: calc((100vw - 10px) / 4);
+  width: calc((100vw - 12px) / 4);
+  height: calc((100vw - 12px) / 4);
 }
 
 .card {
-  width: calc((100vw - 10px) / 4 - 6px);
-  height: calc((100vw - 10px) / 4 - 6px);
+  width: calc((100vw - 12px) / 4 - 6px);
+  height: calc((100vw - 12px) / 4 - 6px);
   margin: auto;
   display: flex;
   border-radius: 5px;
@@ -241,11 +243,11 @@ main {
 
 .card-front,
 .card-back {
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
   backface-visibility: hidden;
   border-radius: 5px;
-  border: solid #000 0.2px;
+  border: solid #000 0.5px;
   transition: 0.5s ease-in;
 }
 
