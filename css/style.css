@@ -18,9 +18,9 @@ table {
 body {
   width: 100%;
   margin: 0 auto;
-  background-color: #EAF2EF;
+  background-color: #eaf2ef;
   font-family: 'Contrail One', sans-serif;
-  color: #292F36;
+  color: #292f36;
 }
 
 /* HEADER */
@@ -37,7 +37,8 @@ header {
 
 /* START & END SCREEN */
 
-.start-screen, .end-screen {
+.start-screen,
+.end-screen {
   width: calc(100% - 4px);
   height: calc(100% - 4px);
   top: 0;
@@ -46,7 +47,7 @@ header {
   border: solid 1px #444;
   border-radius: 5px;
   position: absolute;
-  background-color: #F7FFF7;
+  background-color: #f7fff7;
   display: flex;
   flex-wrap: wrap;
   transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1.550);
@@ -56,7 +57,7 @@ header {
   z-index: 2;
   display: flex;
   flex-wrap: wrap;
-  transform: translatey(0px);
+  transform: translatey(0);
 }
 
 #start-screen-title,
@@ -80,7 +81,7 @@ header {
   display: block;
   outline: none;
   border: solid 0;
-  background-color: #88E172;
+  background-color: #88e172;
   width: 150px;
   height: 50px;
   border-radius: 3px;
@@ -121,7 +122,7 @@ header {
   display: block;
   outline: none;
   border: solid 0;
-  background-color: #88E172;
+  background-color: #88e172;
   width: 150px;
   height: 50px;
   border-radius: 3px;
@@ -200,7 +201,7 @@ header {
   height: calc(100vw - 4px);
   margin-left: 1px;
   border: solid 1px #444;
-  background-color: #F7FFF7;
+  background-color: #f7fff7;
   border-radius: 5px;
 }
 
@@ -223,17 +224,17 @@ header {
   border-radius: 5px;
   border: solid #000 0;
   transform-style: preserve-3d;
-  transform: rotatey(0deg) translatex(0px) translatey(0px);
+  transform: rotatey(0) translatex(0) translatey(0);
   transition: all 0.6s cubic-bezier(0.680, -0.550, 0.265, 1.550);
   cursor: pointer;
 }
 
 .flipped {
-  transform: rotatey(-180deg) translatex(0px) translatey(0px);
+  transform: rotatey(-180deg) translatex(0) translatey(0);
 }
 
 .success {
-  transform: rotatey(-180deg) translatex(0px) translatey(0px);
+  transform: rotatey(-180deg) translatex(0) translatey(0);
   animation: shrink-with-Yrotate 0.5s ease-in-out 0s 1 normal;
 }
 
@@ -248,21 +249,21 @@ header {
 }
 
 .card-front {
-  background-color: #FF6B6B;
-  transform: rotateY( 0deg ) translateZ( 2px );
+  background-color: #ff6b6b;
+  transform: rotateY(0) translateZ(2px);
 }
 
 .card-back {
   top: 0;
   left: 0;
   position: absolute;
-  transform: rotateY( 180deg );
-  background-color: #FFE66D;
+  transform: rotateY(180deg);
+  background-color: #ffe66d;
   align-items: center;
 }
 
 .back-success {
-  background-color: #88E172;
+  background-color: #88e172;
 }
 
 .icon {
@@ -272,7 +273,7 @@ header {
   margin: 0 auto;
   pointer-events: none;
   transition: none !important;
-  color: #292F36;
+  color: #292f36;
 }
 
 .wrong {    
@@ -376,21 +377,21 @@ header {
 
 #successAnimationCircle {
   stroke-dasharray: 151px 151px;
-  stroke: #88E172;
+  stroke: #88e172;
 }
 
 #successAnimationCheck {
   stroke-dasharray: 36px 36px;
-  stroke: #88E172;
+  stroke: #88e172;
 }
 
 #successAnimationResult {
-  fill: #88E172;
-  opacity: 0;  
+  fill: #88e172;
+  opacity: 0;
 }
 
 #successAnimation.animated {
-  animation: 1s ease-out 0s 1 both scaleAnimation; 
+  animation: 1s ease-out 0s 1 both scaleAnimation;
 }
 
 #successAnimationCircle {

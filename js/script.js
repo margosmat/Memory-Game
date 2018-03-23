@@ -41,7 +41,6 @@ function shuffleArray(array) {
 }
 
 $('.card').on('click', function(e) {
-  
   let parent = $(e.target).parent();
   if ( parent.hasClass('success') ) return;
   if ( !parent.hasClass('flipped') )
@@ -66,8 +65,8 @@ $('.card').on('click', function(e) {
         }, 800);
       }
 
-      countMoves();      
-    }    
+      countMoves();
+    }
   }
   setTimeout(checkIfEndGame, 600);
 });
@@ -107,14 +106,14 @@ function compareCards(flippedCards, areLogosTheSame)
       }
       unflip();
     }, 1100);
-  }      
+  }
 }
 
 function checkIfEndGame() {
   if($('.success').length === 16)
   {
     constructEndGameStats();
-    showEndScreen();    
+    showEndScreen();
   }
 }
 
