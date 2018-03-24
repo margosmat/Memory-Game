@@ -28,16 +28,16 @@ FontAwesome 5.0.8 for all the icons in the game
 ## Screenshots
 
 Start screen:
-![Start screen](img/start-screen.png)
+![Start screen](img/start-screen.PNG)
 
 Game just after start:
-![After start](img/after-start.png)
+![After start](img/after-start.PNG)
 
 Gameplay:
 ![Gameplay](img/gameplay.gif)
 
 End screen:
-![End screen](img/end-screen.png)
+![End screen](img/end-screen.PNG)
 
 ### Contributing
 Not applicable.
